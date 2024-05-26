@@ -1,0 +1,18 @@
+@clients-api_HostAddress = http://localhost:5168
+
+# @name getClientsRequest
+GET {{clients-api_HostAddress}}/api/clients
+
+
+
+###
+
+@clientId = {{getClientsRequest.response.body.$.clientId}};
+
+PUT {{clients-api_HostAddress}}/api/clients/{{clientId}}
+Content-Type: application/json
+
+{
+  "ClientId": "{{premierClient.clientId}}",
+  "Nom": "{{premierClient.Nom}}"
+}
