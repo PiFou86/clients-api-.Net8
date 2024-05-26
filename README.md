@@ -2,6 +2,24 @@
 
 Projet pour tester et voir les différences entre .Net 6.0 et .Net 8.0 ainsi que .Net MVC.
 
+## Lancer le projet
+
+Vous pouvez le lancer à partir de :
+
+- Visual studio : lancez le projet clients-api (http)
+- Ligne de commande : placez-vous dans le répertoire clients-api et tapez ```dotnet run```
+- Docker : allez dans le répertoire ```docker-compose-etudiant``` et tapez ```docker-compose up -d```
+
+```console
+ pfleon@pflmb  ~/tmp/clients-api  cd docker-compose-etudiant
+ pfleon@pflmb  ~/tmp/clients-api/docker-compose-etudiant  docker-compose up -d      
+[+] Running 2/3
+ ⠸ Network docker-compose-etudiant_default  Created                                      0.4s 
+ ✔ Container sqlserver                      Started                                      0.2s 
+ ✔ Container api                            Started                                      0.3s
+ pfleon@pflmb  ~/tmp/clients-api/docker-compose-etudiant  open http://localhost:2323/swagger
+```
+
 ## API
 
 Lien pour documentation : https://app.swaggerhub.com/apis/PIERREFRANCOISLEON/clients-api-.Net8/1.0
