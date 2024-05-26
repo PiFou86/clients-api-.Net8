@@ -4,11 +4,11 @@ Projet pour tester et voir les différences entre .Net 6.0 et .Net 8.0 ainsi que
 
 ## API
 
-### /api/clients/{clientId}/Adresses
-
 Lien pour documentation : https://app.swaggerhub.com/apis/PIERREFRANCOISLEON/clients-api-.Net8/1.0
 
 Version simplifiée dans la suite.
+
+### /api/clients/{clientId}/Adresses
 
 #### GET
 ##### Parameters
