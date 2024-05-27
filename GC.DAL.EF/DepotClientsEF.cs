@@ -35,7 +35,7 @@ namespace GC.DAL.EF
             }
             pagingParameters.Normalize();
 
-            if (pagingParameters.Page > 0)
+            if (pagingParameters.PageSize > 0)
             {
                 return this._context.Client
                     .Include(c => c.Adresses)
@@ -85,7 +85,7 @@ namespace GC.DAL.EF
             }
 
             pagingParameters.Normalize();
-            if (pagingParameters.Page > 0)
+            if (pagingParameters.PageSize > 0)
             {
                 return this._context.Adresse.Where(a => a.ClientId == clientId)
                             .Skip(pagingParameters.Page * pagingParameters.PageSize)

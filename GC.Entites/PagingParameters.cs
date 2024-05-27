@@ -17,7 +17,7 @@ namespace GC.Entites
             {
                 Page = 0;
             }
-            if (PageSize < 1 || PageSize > 20)
+            if (PageSize < 0 || PageSize > 20)
             {
                 PageSize = 10;
             }
