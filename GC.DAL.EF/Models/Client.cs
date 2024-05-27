@@ -16,6 +16,7 @@ namespace GC.DAL.EF.Models
             this.ClientId = p_client.ClientId;
             this.Nom = p_client.Nom;
             this.Prenom = p_client.Prenom;
+            this.DateNaissance = p_client.DateNaissance;
             this.Adresses = p_client.Adresses?.Select(a => new Adresse(a, p_client.ClientId)).ToList();
         }
 
@@ -36,7 +37,7 @@ namespace GC.DAL.EF.Models
         {
             List<GC.Entites.Adresse> adresses = this.Adresses?.Select(aDTO => aDTO.VersEntite()).ToList()??new List<Entites.Adresse>();
 
-            return new GC.Entites.Client(this.ClientId, this.Nom, this.Prenom, adresses);
+            return new GC.Entites.Client(this.ClientId, this.Nom, this.Prenom, this.DateNaissance, adresses);
         }
     }
 }

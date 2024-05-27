@@ -14,7 +14,7 @@ namespace clients_api.ViewModel
             this.Nom = p_client.Nom;
             this.Prenom = p_client.Prenom;
             this.DateNaissance = p_client.DateNaissance;
-            Adresses = p_client.Adresses?.ConvertAll(a => new AdresseViewModel(a)).ToList() ?? new List<AdresseViewModel>();
+            this.Adresses = p_client.Adresses?.ConvertAll(a => new AdresseViewModel(a)).ToList() ?? new List<AdresseViewModel>();
         }
 
         public Guid? ClientId { get; set; } = Guid.Empty;
@@ -31,7 +31,7 @@ namespace clients_api.ViewModel
         public List<AdresseViewModel>? Adresses { get; set; }
 
         public Client ToEntity() { 
-            Client client = new Client(ClientId ?? Guid.Empty, Nom, Prenom, Adresses?.ConvertAll(a => a.ToEntity()) ?? new List<Adresse>());
+            Client client = new Client(ClientId ?? Guid.Empty, Nom, Prenom, DateNaissance, Adresses?.ConvertAll(a => a.ToEntity()) ?? new List<Adresse>());
 
             return client;
         }

@@ -52,6 +52,7 @@ namespace GC.GenererDonnees
                                 Guid.NewGuid(),
                                 noms[_generateurNombres.Next(0, noms.Length)],
                                 prenoms[_generateurNombres.Next(0, prenoms.Length)],
+                                _generateurNombres.Next(0, 100) > 50?new DateTime(_generateurNombres.Next(1950, 2000), _generateurNombres.Next(1, 13), _generateurNombres.Next(1, 29)): null,
                                 GenererAdresses()
             );
         }

@@ -17,7 +17,7 @@ namespace GC.Entites
 
         public DateTime? DateNaissance { get; set; }
 
-        public Client(Guid p_clientId, string p_nom, string p_prenom, IEnumerable<Adresse> p_adresses)
+        public Client(Guid p_clientId, string p_nom, string p_prenom, DateTime? p_dateNaissance, IEnumerable<Adresse> p_adresses)
         {
             if (p_clientId == Guid.Empty)
             {
@@ -39,6 +39,7 @@ namespace GC.Entites
             this.ClientId = p_clientId;
             this.Nom = p_nom;
             this.Prenom = p_prenom;
+            this.DateNaissance = p_dateNaissance;
             this.m_adresses = [.. p_adresses];
         }
 
