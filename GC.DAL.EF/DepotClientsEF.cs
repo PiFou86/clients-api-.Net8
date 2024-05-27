@@ -33,10 +33,19 @@ namespace GC.DAL.EF
             {
                 throw new ArgumentNullException(nameof(pagingParameters));
             }
+            pagingParameters.Normalize();
+
+            if (pagingParameters.Page > 0)
+            {
+                return this._context.Client
+                    .Include(c => c.Adresses)
+                    .Skip(pagingParameters.Page * pagingParameters.PageSize)
+                    .Take(pagingParameters.PageSize)
+                    .Select(c => c.VersEntite()).ToList();
+            }
+
             return this._context.Client
                 .Include(c => c.Adresses)
-                .Skip(pagingParameters.Page * pagingParameters.PageSize)
-                .Take(pagingParameters.PageSize)
                 .Select(c => c.VersEntite()).ToList();
         }
 
@@ -75,10 +84,17 @@ namespace GC.DAL.EF
                 throw new ArgumentNullException(nameof(pagingParameters));
             }
 
+            pagingParameters.Normalize();
+            if (pagingParameters.Page > 0)
+            {
+                return this._context.Adresse.Where(a => a.ClientId == clientId)
+                            .Skip(pagingParameters.Page * pagingParameters.PageSize)
+                            .Take(pagingParameters.PageSize)
+                            .Select(a => a.VersEntite()).ToList();
+            }
+
             return this._context.Adresse.Where(a => a.ClientId == clientId)
-                        .Skip(pagingParameters.Page * pagingParameters.PageSize)
-                        .Take(pagingParameters.PageSize)
-                        .Select(a => a.VersEntite()).ToList();
+            .Select(a => a.VersEntite()).ToList();
         }
 
         public void ModifierAdresse(Guid p_clientId, GC.Entites.Adresse p_adresse)
